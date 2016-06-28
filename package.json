@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/msemtd/pitrain-node/issues"
   },
-  "homepage": "https://github.com/msemtd/pitrain-node#readme"
+  "homepage": "https://github.com/msemtd/pitrain-node#readme",
+  "dependencies": {
+    "console-stamp": "^0.2.2",
+    "express": "^4.14.0",
+    "serve-favicon": "^2.3.0"
+  }
 }
