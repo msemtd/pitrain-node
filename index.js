@@ -1,9 +1,10 @@
 var port = 9912;
 require('console-stamp')( console, {  } );
 var express = require('express');
-var app = express();
 var path = require('path');
 var favicon = require('serve-favicon');
+
+var app = express();
 app.disable('x-powered-by'); // security by obscurity: mask attack surface
 app.use(favicon(path.join(__dirname, 'favicon.ico')));
 
@@ -11,19 +12,30 @@ console.log('app start');
 console.log("start CMU load");
 app.locals.cmu = require('./cmu');
 app.locals.cmu.loadCmu();
+app.locals.pidig = require('./pidig');
+app.locals.pidig.loadTenThousand();
 
 var router = express.Router();
 
 app.get('/', function (req, res) {
     console.log('serving root');
     var cmu = app.locals.cmu;
+    var pi = app.locals.pidig;
     var info = "INFO = ";
     if(cmu.isCmuLoaded()){
         info +=  cmu.getCmu("INFO");
     } else {
         info = "(CMU is not loaded)";
     }
-    res.send('Hello! Nothing to see here!\n'+"CMU says "+ info);
+    if(pi.isLoaded()){
+        var nun = pi.getTen(100/10);
+        info += " pi digits loaded: and digits 101-110 are " + nun;
+    } else {
+        info += " pi digits NOT loaded";
+    }
+    avoidCache(res);
+    
+    res.send('Hello! Nothing to see here!\n'+"  server says "+ info);
 });
 
 app.use(function(err, req, res, next) {
