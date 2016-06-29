@@ -85,6 +85,7 @@ var majmap = {
 "ZH": "6",
 };
 
+// Preferred simple phonetic mapping for digits - same length and preferably unvoiced
 var digitPref = {
 	"0": "S",
 	"1": "T",
@@ -97,3 +98,6 @@ var digitPref = {
 	"8": "F",
 	"9": "P",
 };
+
+exports.majmap = majmap;
+exports.digitPref = digitPref;
