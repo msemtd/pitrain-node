@@ -10,12 +10,24 @@ app.use(favicon(path.join(__dirname, 'favicon.ico')));
 
 console.log('app start');
 console.log("start CMU load");
+app.locals.maj = require('./majormap');
 app.locals.cmu = require('./cmu');
-app.locals.cmu.loadCmu();
+app.locals.cmu.loadCmu(major_mapping);
 app.locals.pidig = require('./pidig');
 app.locals.pidig.loadTenThousand();
 
 var router = express.Router();
+
+// map string of phonemes to major digits
+function major_mapping(phones) {
+    var m = app.locals.maj.majmap;
+    var sa = phones.split(" ");
+    var ms = sa.map(function(p) { return m[p]; });
+    return ms.join("");
+}
+
+console.log("majormap info: "+app.locals.maj.majmap["N"]);
+console.log("major_mapping test: "+major_mapping("N B D AA OW0 K"));
 
 app.get('/', function (req, res) {
     console.log('serving root');
