@@ -12,6 +12,7 @@ var cmu_syms = 'cmudict-0.7b.phones.txt';
 var mapped = false;
 
 var hash = {};
+var list = [];
 
 /*
     Build the cache by reading the file.
@@ -53,11 +54,19 @@ function loadCmu(mapfunc) {
                 var m = mapfunc(phon);
                 v = [word, phon, m, m.length];
             }
+            list.push(v);
             hash[word] = v;
+            // list[word] = v;
+            // if(list.length == 2000){
+                // var s = JSON.stringify(list);
+                // console.log(s);
+            // }
         });
         rl.on('close', () => {
             loaded = true;
-            console.log('loadCmu complete!');
+            // var keys = Object.keys(hash);
+            // console.log("loadCmu complete: word count = " + keys.length);
+            console.log("loadCmu complete: word count = " + list.length);
         });
     } catch (e) {
         console.log(e.message);
@@ -72,6 +81,25 @@ function getCmu(key) {
     return hash[key];
 }
 
+function getFullCmuObject() {
+    return hash;
+}
+
+function getCmuCount() {
+    // return hash.entries().length;
+    return list.length;
+    // return list.entries().length;
+
+}
+
+function getItem(i) {
+    // return a copy of the row
+    return list[i].slice();
+}
+
 exports.isCmuLoaded = isCmuLoaded;
 exports.loadCmu = loadCmu;
 exports.getCmu = getCmu;
+exports.getCmuCount = getCmuCount;
+exports.getFullCmuObject = getFullCmuObject;
+exports.getItem = getItem;

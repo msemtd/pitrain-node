@@ -1,29 +1,17 @@
 {
-  "name": "pitrain-node",
-  "version": "1.0.0",
-  "description": "Pi memorisation tool using the Major System and the CMU phonetic dictionary",
-  "main": "index.js",
+  "name": "pitrain-node-2",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/msemtd/pitrain-node.git"
-  },
-  "keywords": [
-    "Pi",
-    "major-system",
-    "CMUdict"
-  ],
-  "author": "Michael Erskine (msemtd@googlemail.com)",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/msemtd/pitrain-node/issues"
-  },
-  "homepage": "https://github.com/msemtd/pitrain-node#readme",
   "dependencies": {
-    "console-stamp": "^0.2.2",
-    "express": "^4.14.0",
-    "serve-favicon": "^2.3.0"
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "jade": "~1.11.0",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.0"
   }
 }
