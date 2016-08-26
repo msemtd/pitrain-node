@@ -8,15 +8,27 @@ block content
   
   if mode
     p Mode is set to #{mode}
-    button#button1 GO!
+    button#button1 Start Search
 
+  p
+  
   script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js")
+  
   script.
     var digits = "#{digits}";
+    var minimum_cmu_digit_match = 3;
+    
   script(src="/javascripts/procdigcmu.js")
+      
+  div#statusdiv
+    p Status:-
 
   table#results_table(border='1')
     tr
-      th Col 1
-      th Col 2
-
+      th Word
+      th Phonemes
+      th Major
+      th Length
+      th Position
+      th CMU Index
+      th Mapping
