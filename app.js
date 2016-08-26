@@ -9,6 +9,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var pi = require('./routes/pi');
 var scandig = require('./routes/scandig');
+
 var app = express();
 
 // view engine setup
@@ -61,6 +62,7 @@ app.get('/procdigcmu/', function(req, res) {
     }
     var maxtime = 4000;
     // TODO grab time
+    var t1 = process.hrtime();
     var maxpage = 300000;
     var counter = 0;
     for(;i<c;i++){
@@ -82,6 +84,9 @@ app.get('/procdigcmu/', function(req, res) {
         e.push(pos, i, decorated_digits);
         result_list.push({firstName:''+e, lastName: 'of ' + maxpage, age:13});
     }
+    var dur = process.hrtime(t1);
+    console.info("Execution time (hr): %ds %dms", dur[0], dur[1]/1000000);
+
     //~ var s = JSON.stringify(result_list);
     //~ console.log(s);
     res.json(result_list);
