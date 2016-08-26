@@ -15,7 +15,7 @@ block content
     var localcounter = 1;
     function getAndRenderData () {
         $.ajax({
-            url: "/customers?digits=" + #{digits} + "&localcounter=" + localcounter,
+            url: "/procdigcmu?digits=" + #{digits} + "&localcounter=" + localcounter,
                 // the URL for the request
             type: "GET",
                 // whether this is a POST or GET request
@@ -24,17 +24,18 @@ block content
             success: function (responseJson) {
                 // code to run if the request succeeds; parameter = response
                 var trHTML = '';
-                $.each(responseJson, function (i, customer) {
-                    trHTML += '<tr><td>' + customer.firstName + '</td><td>' + customer.lastName + '</td></tr>';
+                $.each(responseJson, function (i, itemdata) {
+                    trHTML += '<tr><td>' + itemdata.firstName + '</td><td>' + itemdata.lastName + '</td></tr>';
                 });
                 localcounter++;
-                $('#customers_table').append(trHTML);
+                $('#results_table').append(trHTML);
             },
             error: function (xhr, status) {
                 // code run if request fails; raw request and status
                 console.log("Sorry, there was a problem!");
             },
-            complete: function (xhr, status) {  	// code to run regardless of success or failure
+            complete: function (xhr, status) {
+                // code to run regardless of success or failure
                 console.log("The request is complete!");
             }
         })
@@ -44,8 +45,8 @@ block content
     });
     })(jQuery);
 
-  table#customers_table(border='1')
+  table#results_table(border='1')
     tr
-      th First Name
-      th Last Name
+      th Col 1
+      th Col 2
 

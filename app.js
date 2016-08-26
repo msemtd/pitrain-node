@@ -43,7 +43,7 @@ function major_mapping(phones) {
     return ms.join("");
 }
 
-app.get('/customers/', function(req, res) {
+app.get('/procdigcmu/', function(req, res) {
     var i = req.query.localcounter;
     var digits = req.query.digits;
     console.log("scan of '"+digits+"' index "+i);
