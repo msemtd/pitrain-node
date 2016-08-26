@@ -1,7 +1,7 @@
     var localcounter = 0;
     function getAndRenderData()  {
         $.ajax({
-            url: "/procdigcmu?digits=" + digits + "&localcounter=" + localcounter,
+            url: "/digcmu?digits=" + digits + "&localcounter=" + localcounter,
                 // the URL for the request
             type: "GET",
                 // whether this is a POST or GET request

@@ -6,6 +6,11 @@ Using nodejs, express, jade/pug, JQuery, Ajax, etc.
 * The /pi page allows user to grab digits of pi in blocks of 10 from the first 10000 digits
 * the /scandig page allows the user to scan the CMU phonetic dictionary for words that appear as major digit sequences within a block of digits
 
+## TODO: -
+
+* Use Bower for JS packages on the browser side
+* Use JQuery DataTables for results paging on the browser
+* CSS it up!
 
 The old TODO list:-
 * import and cache CMUdict, phonemes, major-mappings, etc. - DONE
