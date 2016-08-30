@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  p You need these digits?
+  p NB: I give you 10 digits on a 10-digit boundary starting around #{startarg} (actually starting at #{startactual})
+  p #{digits}
+  p Simple phoneme mapping = #{phoneme}
+
+  hr
+
+  p Button to start scanning the CMU dictionary looking for substring digits
+  
+  form(action="/scandig/" + digits, method="get")
+    input(type="submit", value="scan for words")    
+    
+  script(src="/javascripts/jquery-2.2.0.min.js")
+
+  h2#results
