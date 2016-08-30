@@ -26,7 +26,7 @@ The old TODO list:-
 * CSV production with caching
 * word choosing form - processes cached search
 * use a templating engine within express - DONE
-** just choose one? - using the default Jade/Pug but getting increadsingly annoyed with it!
+** just choose one? - using the default Jade/Pug but getting increasingly annoyed with it!
 ** I want async partials (I think!) - using AJAX to pass back blocks of data during scan
 ** single page would be rad
 * authentication, etc.
