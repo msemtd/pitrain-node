@@ -41,6 +41,7 @@ app.locals.pidig.loadTenThousand();
 if (app.get('env') === 'development') {
   app.locals.pretty = true;
 }
+
 // map string of phonemes to major digits
 function major_mapping(phones) {
     var m = app.locals.maj.majmap;

@@ -4,29 +4,37 @@ block content
   h1= title
   p Welcome to #{title}
 
+  // re-style the header to left-align
+  style table.dataTable thead th { text-align: left }
+  
+  p 
+    For information about the Menmonic Major System, visit: -
+    ul
+      li
+        a(href='http://mt.artofmemory.com/wiki/Major_System') Memory Techniques Wiki page
+      li
+        a(href='https://en.wikipedia.org/wiki/Mnemonic_major_system') Wikipedia entry
+
+  hr
+  h2 Pi Digits (the early ones!)
+  
   script(src="/javascripts/jquery.min.js")
   script(src="/javascripts/jquery.dataTables.min.js")
-  
+  //- here we take the pitab local unescaped...
   script.
-   $(document).ready(function() {  $('#pi_table').DataTable();  } );
+    var pitab = !{pitab};
   
-  
-  table#pi_table()
-    thead
-      tr
-        th x
-        th 0
-        th 1
-        th 2
-        th 3
-        th 4
-        th 5
-    tbody
-      tr
-        td 0
-        td 1
-        td 2
-        td 3
-        td 4
-        td 5
-        td 6
+  //- TODO turn each item into a link for Major CMU scan at /pi/<digits>
+
+  script.
+    $(document).ready(function() {
+        $('#pi_table').DataTable( {
+            data: pitab,
+            ordering: false,
+            pageLength: 20,
+            columns: [{ title: "X" },{ title: "10" },{ title: "20." },{ title: "30" },{ title: "40" },{ title: "50" },],
+        } );
+    } );
+
+  table#pi_table(class='display')
+
