@@ -10,6 +10,10 @@
             success: function (responseJson) {
                 // code to run if the request succeeds; parameter = response
                 var result_list = responseJson.results_tab;
+                // upon first result, clear the table...
+                if(localcounter == 0) {
+                    $('#results_table tbody').remove();
+                }
                 localcounter = responseJson.newindex;
                 var cmucount = responseJson.cmucount;
                 // calc progress

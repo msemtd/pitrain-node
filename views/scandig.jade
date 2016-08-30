@@ -2,18 +2,17 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-
   p Scanning digits: #{digits}
   
   if mode
     p Mode is set to #{mode}
+    // TODO change button text and/or disable for various stages
     button#button1 Start Search
 
   p
   
   script(src="/javascripts/jquery.min.js")
-  
+  script(src="/javascripts/jquery.dataTables.min.js")
   script.
     var digits = "#{digits}";
     var minimum_cmu_digit_match = 2;
@@ -23,12 +22,28 @@ block content
   div#statusdiv
     p Status:-
 
+  script.
+   $(document).ready(function() {  $('#results_table').DataTable();  } );
+
+  // would probably be better off tacking it onto the button press    $('#button1').click(getAndRenderData);
+
+  
   table#results_table(border='1')
-    tr
-      th Word
-      th Phonemes
-      th Major
-      th Length
-      th Position
-      th CMU Index
-      th Mapping
+    thead
+        tr
+        th Word
+        th Phonemes
+        th Major
+        th Length
+        th Position
+        th CMU Index
+        th Mapping
+    tbody
+      tr
+        td Word
+        td Phonemes
+        td Major
+        td Length
+        td Position
+        td CMU Index
+        td Mapping
