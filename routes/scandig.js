@@ -7,8 +7,6 @@ Scan digits for CMU words
 
 TODO show nice stuff on screen
 
-Start operation - issue a 
-
 */
 router.get('/:digs(\\d+)', function(req, res, next) {
     var digs = req.params.digs;
@@ -16,14 +14,10 @@ router.get('/:digs(\\d+)', function(req, res, next) {
     var maj = app.locals.maj;
 
     res.render('scandig', { 
-        title: 'Scan digits', 
+        title: 'Scan digits for CMU words', 
         digits: digs,
         mode: "start",
     });
 });
-
-// router.get('/', function(req, res, next) {
-    
-// });
 
 module.exports = router;

@@ -16,25 +16,15 @@ block content
         a(href='https://en.wikipedia.org/wiki/Mnemonic_major_system') Wikipedia entry
 
   hr
-  h2 Pi Digits (the early ones!)
+  h2 Pi Digits (up to 1000)
   
   script(src="/javascripts/jquery.min.js")
   script(src="/javascripts/jquery.dataTables.min.js")
   //- here we take the pitab local unescaped...
   script.
     var pitab = !{pitab};
-  
-  //- TODO turn each item into a link for Major CMU scan at /pi/<digits>
 
-  script.
-    $(document).ready(function() {
-        $('#pi_table').DataTable( {
-            data: pitab,
-            ordering: false,
-            pageLength: 20,
-            columns: [{ title: "X" },{ title: "10" },{ title: "20." },{ title: "30" },{ title: "40" },{ title: "50" },],
-        } );
-    } );
+  script(src="/javascripts/format_the_pi_table.js")
 
   table#pi_table(class='display')
 
