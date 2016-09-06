@@ -99,5 +99,14 @@ var digitPref = {
 	"9": "P",
 };
 
+// Give preferred simple phonetic mapping for digit sequence
+function mapSimple(digseq) {
+    var da = digseq.split('');
+    var pa = da.map(function(num){return digitPref[num]});
+    var phoneme = pa.join('');
+    return phoneme;
+}
+
 exports.majmap = majmap;
 exports.digitPref = digitPref;
+exports.mapSimple = mapSimple;

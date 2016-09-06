@@ -18,16 +18,13 @@ router.get('/:start(\\d+)', function(req, res, next) {
     rounded *= 10;
 
     var maj = app.locals.maj;
-    // use the maj.digitPref 
-    var digs = block.split('');
-    var pp = digs.map(function(num){return maj.digitPref[num]});
-    var phoneme = pp.join('');
+    var simple = maj.mapSimple(block);
 
     res.render('pi', { title: 'Pi digits', 
         startarg: startarg, 
         startactual: rounded,
         digits: block,
-        phoneme: phoneme,
+        phoneme: simple,
     });
 });
 

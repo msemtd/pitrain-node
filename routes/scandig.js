@@ -13,10 +13,13 @@ router.get('/:digs(\\d+)', function(req, res, next) {
     var app = req.app;
     var maj = app.locals.maj;
 
+    var simple = maj.mapSimple(digs);
+    
     res.render('scandig', { 
-        title: 'Scan digits for CMU words', 
-        digits: digs,
-        mode: "start",
+        "title": 'Scan digits for CMU words', 
+        "digits": digs,
+        "mode": "start",
+        "simple": simple,
     });
 });
 

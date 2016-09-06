@@ -7,13 +7,18 @@ block content
   // re-style the header to left-align
   style table.dataTable thead th { text-align: left }
   
-  p 
-    For information about the Menmonic Major System, visit: -
+  p For information about the Menmonic Major System, visit: -
     ul
       li
         a(href='http://mt.artofmemory.com/wiki/Major_System') Memory Techniques Wiki page
       li
         a(href='https://en.wikipedia.org/wiki/Mnemonic_major_system') Wikipedia entry
+
+  p From this page you can: -
+    ul
+      li Use the handy table of the first 1000 digits of pi below
+      li Choose a specific starting point in pi
+      li Scan CMU with an arbitrary digit sequence
 
   hr
   h2 Pi Digits (up to 1000)
@@ -27,4 +32,6 @@ block content
   script(src="/javascripts/format_the_pi_table.js")
 
   table#pi_table(class='display')
+
+  hr
 

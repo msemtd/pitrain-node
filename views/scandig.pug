@@ -3,7 +3,8 @@ extends layout
 block content
   h1= title
   p Scanning digits: #{digits}
-  
+  p Simple phoneme mapping = #{simple}
+
   if mode
     p Mode is set to #{mode}
     // TODO change button text and/or disable for various stages
@@ -21,6 +22,8 @@ block content
       
   div#statusdiv
     p Status:-
+
+  h2 Results:-
 
   script.
    $(document).ready(function() {  $('#results_table').DataTable();  } );
