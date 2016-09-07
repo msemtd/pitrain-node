@@ -12,17 +12,18 @@ block content
   
   script.
     var digits = "#{digits}";
-    var minimum_cmu_digit_match = 2;
+    var colspec = [ {title: "Word"}, 
+        {title: "Phonemes"}, {title: "Major"}, 
+        {title: "Length"}, {title: "Position"}, 
+        {title: "CMU Index"}, {title: "Mapping"}, ];
     $(document).ready(function() {  $('#results_table').DataTable( {
         "ajax": {   "url": '/scanfulldata/'+digits, "dataSrc": ''},
         "deferRender": true,
-        "columns": [ 
-            { title: "Word" }, { title: "Phonemes"}, { title: "Major"}, 
-            { title: "Length"}, { title: "Position"}, 
-            { title: "CMU Index"}, { title: "Mapping"}, ],
-        
+        "pagingType": "full_numbers",
+        "columns": colspec,
+        // "autoWidth": false,
     } );  } );
 
   h2 Results:-
 
-  table#results_table(class='display')
+  table#results_table(class='compact stripe hover cell-border order-column')
