@@ -31,7 +31,13 @@ I have chosen to memorise in blocks of 10 digits. This restriction helps keep me
 
 As a computer nerd, I quickly became interested in what I could possibly create to help me choose interesting words from the rich language we have. I had previously worked with  open source speech synthesis and speech recognition software as part of my Cheesoid robot project so I was familiar with the state-of-the-art. In trying to make text into recognisable speech and vice-versa, some amazingly useful resources have emerged, the most important of which is the Carnegie Mellon University (CMU) Pronouncing Dictionary (see http://www.speech.cs.cmu.edu/cgi-bin/cmudict).
 
-The CMU dictionary is in the ARPABET transcription encoding (see https://en.wikipedia.org/wiki/Arpabet) which is a plain ASCII representation of the phoneme set for English. I created a simple mapping of ARPABET to Major so that each word in the CMU dictionary can be translated into its Major Mnemonic representation.
+The CMU dictionary is in the ARPABET transcription encoding (see https://en.wikipedia.org/wiki/Arpabet) which is a plain ASCII representation of the phoneme set for English. I created a simple mapping of ARPABET to Major so that each word in the CMU dictionary can be translated into its Major Mnemonic representation. When searching for words that fit within a digit sequence we are doing simple string matching of each word's Major phoneme string within the digit string.
+
+For a decent modern web app we want minimal delays and to make full use of proper browser capabilities. The dictionary is big so we don't want to search the whole thing before coming back with results. It makes sense to use a stateless API so that a search of any length can be started from any position. The browser can keep state, i.e. track the progress, and do the appropriately smart things like batching queries and issuing AJAX requests. 
+    
+When getting results with AJAX we might want to chunk them or just grab single results. We might want to send back a message saying "I'm still searching" if it is taking a long time to find the next item. We want to send back a message saying "finished" when all items have been processed. In general we want live progress feedback for a search. We want to be able to cancel a long search, and this all has to be multi-user and multi-session aware!   
+
+No problem! We have NodeJS to do the back-end stuff and JQuery to do the front-end.
 
 ## TODO: -
 
