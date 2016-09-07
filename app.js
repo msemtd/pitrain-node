@@ -10,6 +10,8 @@ var users = require('./routes/users');
 var pi = require('./routes/pi');
 var scandig = require('./routes/scandig');
 var digcmu = require('./routes/digcmu');
+var scanfull = require('./routes/scanfull');
+var scanfulldata = require('./routes/scanfulldata');
 
 var app = express();
 
@@ -30,6 +32,8 @@ app.use('/users', users);
 app.use('/pi', pi);
 app.use('/scandig', scandig);
 app.use('/digcmu', digcmu);
+app.use('/scanfull', scanfull);
+app.use('/scanfulldata', scanfulldata);
 
 console.log("start CMU load");
 app.locals.maj = require('./majormap');

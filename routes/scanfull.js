@@ -3,23 +3,22 @@ var router = express.Router();
 
 /* 
 
-Scan digits for CMU words
+Route: scanfull
 
-TODO show nice stuff on screen
+Scan given digit string for CMU words in Major form - full DataTables
 
 */
-router.get('/:digs(\\d+)', function(req, res, next) {
-    var digs = req.params.digs;
+router.get('/:digits(\\d+)', function(req, res, next) {
     var app = req.app;
+    var digits = req.params.digits;
     var maj = app.locals.maj;
 
-    var simple = maj.mapSimple(digs);
+    var simple = maj.mapSimple(digits);
     var cmucount = app.locals.cmu.getCmuCount();
 
-    res.render('scandig', { 
+    res.render('scanfull', { 
         "title": 'Scan digits for CMU words', 
-        "digits": digs,
-        "mode": "start",
+        "digits": digits,
         "simple": simple,
         "cmucount": cmucount
     });

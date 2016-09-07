@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  script(src="/javascripts/jquery.min.js")
+  script(src="/javascripts/jquery.dataTables.min.js")
+  h1= title
+  p Scanning digits: #{digits}
+  p Simple phoneme mapping = #{simple}
+  p There are #{cmucount} words in the CMU dictionary
+
+  p
+  
+  script.
+    var digits = "#{digits}";
+    var minimum_cmu_digit_match = 2;
+    $(document).ready(function() {  $('#results_table').DataTable( {
+        "ajax": {   "url": '/scanfulldata/'+digits, "dataSrc": ''},
+        "deferRender": true,
+        "columns": [ 
+            { title: "Word" }, { title: "Phonemes"}, { title: "Major"}, 
+            { title: "Length"}, { title: "Position"}, 
+            { title: "CMU Index"}, { title: "Mapping"}, ],
+        
+    } );  } );
+
+  h2 Results:-
+
+  table#results_table(class='display')

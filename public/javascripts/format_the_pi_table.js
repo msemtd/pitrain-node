@@ -5,7 +5,7 @@
 $(document).ready(function() {
     // console.log( 'Table initialisation start: '+new Date().getTime() );
     var formatter = function (td, cellData, rowData, row, col) {
-        $(td).html("<a href='/scandig/"+cellData+"'>"+cellData+"</a>");
+        $(td).html("<a href='/scanfull/"+cellData+"'>"+cellData+"</a>");
     };
     $('#pi_table').DataTable( {
         data: pitab,

@@ -1,14 +1,22 @@
 /*
 
-cmu.js
+    cmu.js
+
+    Each CMU dictionary entry is held in a list and can be accessed 
+    by a hash. The entries look like this...
+    
+    [word, phonemes, mapped_phonemes, mapped_phonemes_length]
+
+    The entire CMU dictionary is cached from the standard released 
+    file 'cmudict-0.7b.txt' at startup. The phoneme mapping is 
+    performed during this slurp.
 
 */
 const fs = require('fs');
 var loaded = false;
 var cmuf = 'cmudict-0.7b.txt';
-var cmu_phones = 'cmudict-0.7b.phones.txt';
-var cmu_syms = 'cmudict-0.7b.phones.txt';
-// when mapped, the value of the hash is an array [word, phonemes, mapped_phonemes, mapped_phonemes_length]
+var cmuf_phones = 'cmudict-0.7b.phones.txt';
+var cmuf_syms = 'cmudict-0.7b.symbols.txt';
 var mapped = false;
 
 var hash = {};
@@ -78,18 +86,11 @@ function isCmuLoaded() {
 }
 
 function getCmu(key) {
-    return hash[key];
-}
-
-function getFullCmuObject() {
-    return hash;
+    return hash[key].slice();
 }
 
 function getCmuCount() {
-    // return hash.entries().length;
     return list.length;
-    // return list.entries().length;
-
 }
 
 function getItem(i) {
@@ -101,5 +102,4 @@ exports.isCmuLoaded = isCmuLoaded;
 exports.loadCmu = loadCmu;
 exports.getCmu = getCmu;
 exports.getCmuCount = getCmuCount;
-exports.getFullCmuObject = getFullCmuObject;
 exports.getItem = getItem;

@@ -7,6 +7,9 @@ block content
   // re-style the header to left-align
   style table.dataTable thead th { text-align: left }
   
+  script(src="/javascripts/jquery.min.js")
+  script(src="/javascripts/jquery.dataTables.min.js")
+
   p For information about the Menmonic Major System, visit: -
     ul
       li
@@ -16,15 +19,14 @@ block content
 
   p From this page you can: -
     ul
-      li Use the handy table of the first 1000 digits of pi below
+      li Use the handy table of the first 1000 digits of pi 
+        a(href='#pithou') below
       li Choose a specific starting point in pi
       li Scan CMU with an arbitrary digit sequence
 
   hr
-  h2 Pi Digits (up to 1000)
+  h2#pithou Pi Digits (up to 1000)
   
-  script(src="/javascripts/jquery.min.js")
-  script(src="/javascripts/jquery.dataTables.min.js")
   //- here we take the pitab local unescaped...
   script.
     var pitab = !{pitab};
