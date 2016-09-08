@@ -47,6 +47,7 @@ No problem! We have NodeJS to do the back-end stuff and JQuery to do the front-e
 * pi route to provide form when no index arg
 * scanfull also to default to a form
 * word saving when clicking table row - goes to a div - checking routine - DataTables search box interaction
+** clickable rows DONE
 
 
 The old TODO list:-

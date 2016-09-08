@@ -3,6 +3,7 @@ extends layout
 block content
   script(src="/javascripts/jquery.min.js")
   script(src="/javascripts/jquery.dataTables.min.js")
+  script(src="/javascripts/wordchoice.js")
   h1= title
   p Scanning digits: #{digits}
   p Simple phoneme mapping = #{simple}
@@ -16,13 +17,19 @@ block content
         {title: "Phonemes"}, {title: "Major"}, 
         {title: "Length"}, {title: "Position"}, 
         {title: "CMU Index"}, {title: "Mapping"}, ];
-    $(document).ready(function() {  $('#results_table').DataTable( {
-        "ajax": {   "url": '/scanfulldata/'+digits, "dataSrc": ''},
-        "deferRender": true,
-        "pagingType": "full_numbers",
-        "columns": colspec,
-        // "autoWidth": false,
-    } );  } );
+    $(document).ready(function() {  
+        var table = $('#results_table').DataTable( {
+            "ajax": {   "url": '/scanfulldata/'+digits, "dataSrc": ''},
+            "deferRender": true,
+            "pagingType": "full_numbers",
+            "columns": colspec,
+            // "autoWidth": false,
+        } );
+        $('#results_table tbody').on( 'click', 'tr', function () {
+            $(this).toggleClass('selected');
+            wordchoice_changed(table);
+        } );
+    } );
 
   h2 Results:-
 
