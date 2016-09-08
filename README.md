@@ -42,8 +42,12 @@ No problem! We have NodeJS to do the back-end stuff and JQuery to do the front-e
 ## TODO: -
 
 * Use Bower for JS packages on the browser side
-* Dynamic use of JQuery DataTables for results paging on the browser
+* DONE - Dynamic use of JQuery DataTables for results paging on the browser
 * CSS it up!
+* pi route to provide form when no index arg
+* scanfull also to default to a form
+* word saving when clicking table row - goes to a div - checking routine - DataTables search box interaction
+
 
 The old TODO list:-
 * import and cache CMUdict, phonemes, major-mappings, etc. - DONE
