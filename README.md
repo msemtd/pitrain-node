@@ -4,7 +4,8 @@ Pi memorisation tool using the Major System and the CMU phonetic dictionary.
 Using nodejs, express, jade/pug, JQuery, Ajax, etc.
 
 * The /pi page allows user to grab digits of pi in blocks of 10 from the first 10000 digits
-* the /scandig page allows the user to scan the CMU phonetic dictionary for words that appear as major digit sequences within a block of digits. Data is grabbed with Ajax and stuffed in a JQuery DataTables table.
+* The /scandig page allows the user to scan the CMU phonetic dictionary for words that appear as major digit sequences within a block of digits. Data is grabbed with Ajax and stuffed in a JQuery DataTables table.
+* There are other hidden routes for testing purposes!
 
 ## How it works
 
@@ -12,7 +13,7 @@ Memorising long sequences of digits is hard! Unless, of course, the digits follo
 
 There are way more sounds (aka phonemes - maybe 40 in English) than there are digits (10) so only "hard" consonants sounds are used and these can be freely interspersed with vowels and soft consonant sounds ("w", "y", etc.) so the mapping is loose in one direction and strict in the other; by that I mean that you may be able to make umpteen different words from a sequence of digits but going from the words back to the digits will always get the correct digits back (as long as your encoding is accurate and complete).
 
-See https://en.wikipedia.org/wiki/Mnemonic_major_system for detail but in brief, the digit mappings are as follows...
+See [Wikipedia](https://en.wikipedia.org/wiki/Mnemonic_major_system) for detail but in brief, the digit mappings are as follows...
 
 * 1 = t, d, th
 * 2 = n, ng
@@ -29,9 +30,9 @@ In order to become proficient in the Major system, I decided to learn some digit
 
 I have chosen to memorise in blocks of 10 digits. This restriction helps keep me on track: the words that I choose cannot cross a 10 digit boundary, and the little group of 3 to 5 words makes a little sentence or phrase. The phrase is usually silly or nonsense but I make sure that it is always memorable in the general ongoing narrative within its neighbours.
 
-As a computer nerd, I quickly became interested in what I could possibly create to help me choose interesting words from the rich language we have. I had previously worked with  open source speech synthesis and speech recognition software as part of my Cheesoid robot project so I was familiar with the state-of-the-art. In trying to make text into recognisable speech and vice-versa, some amazingly useful resources have emerged, the most important of which is the Carnegie Mellon University (CMU) Pronouncing Dictionary (see http://www.speech.cs.cmu.edu/cgi-bin/cmudict).
+As a computer nerd, I quickly became interested in what I could possibly create to help me choose interesting words from the rich language we have. I had previously worked with  open source speech synthesis and speech recognition software as part of my Cheesoid robot project so I was familiar with the state-of-the-art. In trying to make text into recognisable speech and vice-versa, some amazingly useful resources have emerged, the most important of which is the Carnegie Mellon University (CMU) [Pronouncing Dictionary](http://www.speech.cs.cmu.edu/cgi-bin/cmudict).
 
-The CMU dictionary is in the ARPABET transcription encoding (see https://en.wikipedia.org/wiki/Arpabet) which is a plain ASCII representation of the phoneme set for English. I created a simple mapping of ARPABET to Major so that each word in the CMU dictionary can be translated into its Major Mnemonic representation. When searching for words that fit within a digit sequence we are doing simple string matching of each word's Major phoneme string within the digit string.
+The CMU dictionary is in the [ARPABET](https://en.wikipedia.org/wiki/Arpabet) transcription encoding which is a plain ASCII representation of the phoneme set for English. I created a simple mapping of ARPABET to Major so that each word in the CMU dictionary can be translated into its Major Mnemonic representation. When searching for words that fit within a digit sequence we are doing simple string matching of each word's Major phoneme string within the digit string.
 
 For a decent modern web app we want minimal delays and to make full use of proper browser capabilities. The dictionary is big so we don't want to search the whole thing before coming back with results. It makes sense to use a stateless API so that a search of any length can be started from any position. The browser can keep state, i.e. track the progress, and do the appropriately smart things like batching queries and issuing AJAX requests. 
     
