@@ -10,19 +10,14 @@ block content
   script(src="/javascripts/jquery.min.js")
   script(src="/javascripts/jquery.dataTables.min.js")
 
-  p For information about the Menmonic Major System, visit: -
-    ul
-      li
-        a(href='http://mt.artofmemory.com/wiki/Major_System') Memory Techniques Wiki page
-      li
-        a(href='https://en.wikipedia.org/wiki/Mnemonic_major_system') Wikipedia entry
-
   p From this page you can: -
     ul
       li Use the handy table of the first 1000 digits of pi 
         a(href='#pithou') below
-      li Choose a specific starting point in pi
-      li Scan CMU with an arbitrary digit sequence
+      li Choose a specific starting point in pi (TODO but you can probably work it out!)
+      li Scan CMU with an arbitrary digit sequence (TODO but you can probably work it out!)
+      li Get more information 
+        a(href='#moreinfo') below
 
   hr
   h2#pithou Pi Digits (up to 1000)
@@ -37,3 +32,25 @@ block content
 
   hr
 
+  h2#moreinfo
+  
+  p#readme_md
+    a Click here for the README.md
+
+  div#readme_div(style={"display":"none"})
+    include:markdown-it ../README.md
+
+  script.
+    $(document).ready(function() {  
+        $('#readme_md').on( 'click', function () {
+            console.log("CLICKED!");
+            $('#readme_div').toggle();
+        } );
+    } );
+
+  p For information about the Menmonic Major System, visit: -
+    ul
+      li
+        a(href='http://mt.artofmemory.com/wiki/Major_System') Memory Techniques Wiki page
+      li
+        a(href='https://en.wikipedia.org/wiki/Mnemonic_major_system') Wikipedia entry
