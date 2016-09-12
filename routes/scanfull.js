@@ -24,4 +24,13 @@ router.get('/:digits(\\d+)', function(req, res, next) {
     });
 });
 
+/*
+
+upon empty word arg, just present a form
+
+*/
+// router.get('/', function(req, res, next) {
+    
+// });
+
 module.exports = router;

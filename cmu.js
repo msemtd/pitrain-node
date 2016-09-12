@@ -86,7 +86,8 @@ function isCmuLoaded() {
 }
 
 function getCmu(key) {
-    return hash[key].slice();
+    var got = hash[key];
+    return (got == null) ? null : got.slice();
 }
 
 function getCmuCount() {

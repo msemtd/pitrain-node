@@ -12,6 +12,7 @@ var scandig = require('./routes/scandig');
 var digcmu = require('./routes/digcmu');
 var scanfull = require('./routes/scanfull');
 var scanfulldata = require('./routes/scanfulldata');
+var wordsearch = require('./routes/wordsearch');
 var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +31,7 @@ app.use('/scandig', scandig);
 app.use('/digcmu', digcmu);
 app.use('/scanfull', scanfull);
 app.use('/scanfulldata', scanfulldata);
+app.use('/wordsearch', wordsearch);
 
 console.log("start CMU load");
 app.locals.maj = require('./majormap');

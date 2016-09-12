@@ -13,6 +13,7 @@ block content
   
   script.
     var digits = "#{digits}";
+    var choices = [];
     var colspec = [ {title: "Word"}, 
         {title: "Phonemes"}, {title: "Major"}, 
         {title: "Length"}, {title: "Position"}, 
@@ -27,10 +28,21 @@ block content
         } );
         $('#results_table tbody').on( 'click', 'tr', function () {
             $(this).toggleClass('selected');
-            wordchoice_changed(table);
+            wordchoice_changed(table, choices);
+        } );
+        $('#clearbtn').on('click', function() {
+            $('#results_table tbody tr').removeClass('selected');
+            choices = [];
+            wordchoice_changed(table, choices);
         } );
     } );
 
   h2 Results:-
 
   table#results_table(class='compact stripe hover cell-border order-column')
+
+  h3 Selected Words
+  
+  div#wordsdiv
+    button#clearbtn Clear selection
+  

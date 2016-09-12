@@ -44,30 +44,13 @@ No problem! We have NodeJS to do the back-end stuff and JQuery to do the front-e
 
 * Use Bower for JS packages on the browser side
 * DONE - Dynamic use of JQuery DataTables for results paging on the browser
-* CSS it up!
+* CSS it up! Bootstrap styling perhaps
 * pi route to provide form when no index arg
 * scanfull also to default to a form
+* General CMU browsing especially of single digit "filler" words 
+** DONE for special single digit case in /scanfull/(digits) route
+** need little GUI table for it (open filler digit tab in new window)
+** CMU word search lookup
 * word saving when clicking table row - goes to a div - checking routine - DataTables search box interaction
 ** clickable rows DONE
-
-
-The old TODO list:-
-* import and cache CMUdict, phonemes, major-mappings, etc. - DONE
-* page for major system help - just link to wikipedia to start with
-* provide form to query groups of digits and initiate searches for major mappings - DONE
-** this is the early important one: need simple UI for querying blocks of pi digits (initially only in 10s) and working on those blocks - DONE
-** fields: pi digit block start, pi digit block length, or text digits field entered by user
-** buttons to select digits or work on digits - all async if possible - render to single page or multi page?
-* page for CMU dict words search on a digit sequence - DONE
-** minimum length filter - cache results? - DONE
-*** show cache - cache to files - cache to CSV or TSV?
-*** automatically create caches of files for 1000 digits with this system? Min 2 digit words
-* CSV production with caching
-* word choosing form - processes cached search
-* use a templating engine within express - DONE
-** just choose one? - using the default Jade/Pug but getting increasingly annoyed with it!
-** I want async partials (I think!) - using AJAX to pass back blocks of data during scan
-** single page would be rad
-* authentication, etc.
-
-
+** rows added to box based on position and clash indicated

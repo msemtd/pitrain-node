@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  script(src="/javascripts/jquery.min.js")
+  script(src="/javascripts/jquery.dataTables.min.js")
+  h1= title
+  p Searching for word: "#{word}"
+  p There are #{cmucount} words in the CMU dictionary
+  p
+  
+  script.
+    var datatab = !{datatab};
+    var found = #{found};
+    if(found) {
+        var colspec = [ {title: "Word"}, 
+            {title: "Phonemes"}, {title: "Major"}, 
+            {title: "Length"}, {title: "Position"}, 
+            {title: "CMU Index"}, {title: "Mapping"}, ];
+        $(document).ready(function() {  
+            var table = $('#results_table').DataTable( {
+                "data": datatab,
+                "deferRender": true,
+                "pagingType": "full_numbers",
+                "columns": colspec,
+                // "autoWidth": false,
+            } );
+        } );
+    }
+    
+  h2 Results:-
+  if found
+    table#results_table(class='compact stripe hover cell-border order-column')
+  else
+    p Word not found.
