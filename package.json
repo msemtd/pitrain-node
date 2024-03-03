@@ -13,7 +13,7 @@
     "datatables.net-dt": "^1.10.12",
     "express": "^4.13.4",
     "jquery": "^3.7.1",
-    "jstransformer-markdown-it": "^1.0.0",
+    "jstransformer-markdown-it": "^3.0.0",
     "morgan": ">=1.9.1",
     "pug": "^2.0.0-beta6",
     "serve-favicon": "^2.5.0"
